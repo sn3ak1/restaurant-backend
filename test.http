@@ -1,0 +1,27 @@
+PATCH http://localhost:3000/dishes/63bacda2530125220495f059
+content-type: application/json
+
+{
+  "comments": [
+    {
+      "rating": 1,
+      "comment": "Very bad pizza! Very bad pizza! Very bad pizza! Very bad pizza! Very bad pizza!"
+    },
+    {
+      "rating": 5,
+      "comment": "Very good pizza! Very good pizza! Very good pizza! Very good pizza!"
+    },
+    {
+      "rating": 4,
+      "comment": "Average pizza! Average pizza! Average pizza! Average pizza! Average pizza!"
+    },
+    {
+      "rating": 4,
+      "comment": "Average pizza! Average pizza! Average pizza! Average pizza! Average pizza!"
+    }
+  ]
+}
+
+
+###
+GET http://localhost:3000/dishes/?cuisine=American&name=Salad
