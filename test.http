@@ -24,4 +24,4 @@ content-type: application/json
 
 
 ###
-GET http://localhost:3000/dishes/?cuisine=American&name=Salad
+GET http://localhost:3000/dishes/?cuisine=Italian&cuisine=American

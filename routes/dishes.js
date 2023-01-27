@@ -4,6 +4,7 @@ const Dish = require('../models/dish')
 
 // Getting all
 router.get('/', async (req, res) => {
+    console.log(req.query)
     const params = req.query;
     const query = {};
     if (params.name) {
@@ -15,17 +16,39 @@ router.get('/', async (req, res) => {
 
     if (params.cuisine) {
         console.log(params.cuisine);
-        console.log(params.cuisine);
         query.cuisine = params.cuisine
     }
 
+    if (params.category) {
+        query.category = params.category
+    }
+    if (params.type) {
+        query.type = params.type
+    }
+
+
     try {
-        const dishes = await Dish.find(query)
+        let dishes = await Dish.find(query);
+
+        // if(params.rating) {
+        //     dishes = dishes.filter((dish) => getAverageRating(dish) >= params.rating);
+        // }
+
         res.json(dishes)
     } catch (err) {
         res.status(500).json({ message: err.message })
     }
 })
+
+// function getAverageRating(dish) {
+//     if (dish.comments) {
+//         return dish.comments.map(c => c.rating).reduce((previousValue, currentValue) => {
+//             return previousValue + currentValue;
+//         }, .1) / dish.comments.length;
+//     } else {
+//         return 1;
+//     }
+// }
 
 // Getting One
 router.get('/:id', getDish, (req, res) => {
